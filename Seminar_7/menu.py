@@ -4,7 +4,7 @@ import function as fn
 
 BUSES = 'bus.txt'
 DRIVERS = 'driver.txt'
-ROUTES = 'rout.txt'
+ROUTES = 'route.txt'
 
 
 def clear_screen():
@@ -12,9 +12,9 @@ def clear_screen():
     
 def Buses_menu():
     bus_menu = '''Действия с данными автобусов:\n
-    1 - Вывод всех автобусов
-    2 - Добавление автобуса
-    3 - Выход\n'''
+1 - Вывод всех автобусов
+2 - Добавление автобуса
+3 - Выход\n'''
 
     clear_screen()
     print(bus_menu)
@@ -38,10 +38,10 @@ def Buses_menu():
 
 
 def Dryvers_menu():
-    dryver_menu = '''Действия с данными Водителей:\n
-    1 - Вывод всех водителей
-    2 - Добавление водителя
-    3 - Выход\n'''
+    dryver_menu = '''Действия с данными водителей:\n
+1 - Вывод всех водителей
+2 - Добавление водителя
+3 - Выход\n'''
 
     clear_screen()
     print(dryver_menu)
@@ -65,10 +65,10 @@ def Dryvers_menu():
 
 
 def Routes_menu():
-    route_menu = '''Действия с данными Водителей:\n
-    1 - Вывод всех маршрутов
-    2 - Добавление маршрута
-    3 - Выход\n'''
+    route_menu = '''Действия с данными маршрутов:\n
+1 - Вывод всех маршрутов
+2 - Добавление маршрута
+3 - Выход\n'''
 
     clear_screen()
     print(route_menu)
@@ -80,7 +80,7 @@ def Routes_menu():
 
         case "2":
             # Добавление маршрута
-            pass
+            fn.add_route(BUSES, DRIVERS, ROUTES)
 
         case "3":
             #выход
