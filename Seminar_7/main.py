@@ -1,34 +1,37 @@
-from menu import Menu
-import function as fn
+import os
+import time
+import menu as Menu
 
-# if __name__ == "__main__":
-#     # основной блок
-menuitems = [
-        ("1", "Вывод автобусов"),
-        ("2", "Добавление автобуса"),
-        ("3", "Вывод водителей"),
-        ("4", "Добавление водителей"),
-        ("5", "Вывод маршрута"),
-        ("6", "Добавление маршрута"),
-        ("7", "Выход", lambda: exit())]
+def clear_screen():
+    os.system('cls')
+    
 
-menu = Menu(menuitems)
-    # menu.run('>:')
+main_menu = '''Главное меню:\n
+1 - Действия с данными автобусов
+2 - Действия с данными водителей
+3 - Действия с данными маршрутов
+4 - Выход\n'''
 
-for i in menuitems:
-    print(i[0],i[1])
+clear_screen()
+print(main_menu)
+answer = input('Введите номер действия>: ')
+match answer:
+    case "1":
+        # Действия с данными автобусов
+        Menu.Buses_menu()
 
-text = input("Введите номер: ")
-if text == '1':
-    print(fn.print_bus())
-elif text == '2':
-    fn.add_bus()
-elif text == '3':
-    print(fn.print_driver())
-elif text == '4':
-    fn.add_driver()
-elif text == '5':
-    print(fn.print_route())
-elif text == '6':
-    fn.add_route()
+    case "2":
+        # Действия с данными водителей
+        Menu.Dryvers_menu()
 
+    case "3":
+        # Действия с данными маршрутов
+        Menu.Routes_menu()      
+
+    case "4":
+        #выход
+        exit(0)
+        
+    case _:
+        print("неверный ввод")
+        time.sleep(1) 

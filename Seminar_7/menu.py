@@ -1,37 +1,92 @@
-from os import system
+import os
+import time
+import function as fn
+
+BUSES = 'bus.txt'
+DRIVERS = 'driver.txt'
+ROUTES = 'rout.txt'
 
 
-class Menu:  # класс меню
-    '''
-    класс меню
-    elements = список кортежей
-        кортеж = ("маркер","описание",метод)
-        если метод в кортеже==-1 то menu.run() возвращает True
-        это нужно для реализации выхода из меню реализованных
-        во вложенных методах'''
+def clear_screen():
+    os.system('cls')
+    
+def Buses_menu():
+    bus_menu = '''Действия с данными автобусов:\n
+    1 - Вывод всех автобусов
+    2 - Добавление автобуса
+    3 - Выход\n'''
 
-    def __init__(self, elenemts=[]):
-        self.elements = elenemts
+    clear_screen()
+    print(bus_menu)
+    answer = input('Введите номер действия>: ')
+    match answer:
+        case "1":
+            # Вывод всех автобусов
+            fn.print_all_date(BUSES)
 
-    def print(self):
-        for (mark, text, _) in self.elements:
-            print('{} - {}'.format(mark, text))
+        case "2":
+            # Добавление автобуса
+            fn.add_bus(BUSES)
 
-    def run(self, prompt='выберите команду: '):
-        def clrscr(): return system('cls')
-        while (True):
-            clrscr()
-            self.print()
-            user_choice = input(prompt)
-            for (mark, _, rummethod) in self.elements:
-                if user_choice == mark:
-                    if rummethod == -1:
-                        return True 
-                    clrscr()
-                    rummethod()
-                    break
-
+        case "3":
+            #выход
+            exit(0)
+            
+        case _:
+            print("неверный ввод")
+            time.sleep(1) 
 
 
-    def __len__(self):  # размер меню
-        return len(self.elements)
+def Dryvers_menu():
+    dryver_menu = '''Действия с данными Водителей:\n
+    1 - Вывод всех водителей
+    2 - Добавление водителя
+    3 - Выход\n'''
+
+    clear_screen()
+    print(dryver_menu)
+    answer = input('Введите номер действия>: ')
+    match answer:
+        case "1":
+            # Вывод всех водителей
+            fn.print_all_date(DRIVERS)
+
+        case "2":
+            # Добавление водителя
+            fn.add_driver(DRIVERS)
+
+        case "3":
+            #выход
+            exit(0)
+            
+        case _:
+            print("неверный ввод")
+            time.sleep(1) 
+
+
+def Routes_menu():
+    route_menu = '''Действия с данными Водителей:\n
+    1 - Вывод всех маршрутов
+    2 - Добавление маршрута
+    3 - Выход\n'''
+
+    clear_screen()
+    print(route_menu)
+    answer = input('Введите номер действия>: ')
+    match answer:
+        case "1":
+            # Вывод всех маршрутов
+            fn.print_all_date(ROUTES)
+
+        case "2":
+            # Добавление маршрута
+            pass
+
+        case "3":
+            #выход
+            exit(0)
+            
+        case _:
+            print("неверный ввод")
+            time.sleep(1) 
+
